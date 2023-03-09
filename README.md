@@ -4,7 +4,23 @@
 
 Iniciando com a criacao do projeto
 
-- yarn create react-app 02-dt-money --template typescript
+- Terminal: yarn create react-app 02-dt-money --template typescript
+- Exportando os assets do Figma
+
+Instalando o Styled Components
+
+- Terminal: yarn add styled-components
+            yarn add @types/styled-components -D
+
+
+
+
+
+
+
+
+
+
 
 
 This project was created by [Henrique R. Pohl](https://github.com/henriqpohl).
