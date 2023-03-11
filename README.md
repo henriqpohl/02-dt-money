@@ -12,6 +12,13 @@ Instalando o Styled Components
 - Terminal: yarn add styled-components
             yarn add @types/styled-components -D
 
+Instalando o mirageJS
+
+- Terminal: yarn add miragejs
+
+Instalando o Axios (Gerenciamento de requsicoes HTTP)
+
+- Terminal: yarn add axios
 
 
 
