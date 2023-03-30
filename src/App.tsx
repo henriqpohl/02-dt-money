@@ -6,6 +6,7 @@ import Modal from 'react-modal';
 //import styled from 'styled-components';
 import { GlobalStyle } from './styles/global';
 import { NewTransactionModal } from './components/NewTransactionModal';
+import { TransactionProvider } from './hooks/useTransactions';
 
 // const Title = styled.h1`
 //   font-size: 64px;  
@@ -27,7 +28,7 @@ export function App() {
     }
 
   return (
-    <>
+    <TransactionProvider>
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
       <Dashboard />
 
@@ -37,6 +38,6 @@ export function App() {
       />
 
       <GlobalStyle />
-    </>
+    </TransactionProvider>
   );
-}
+} 

@@ -1,25 +1,8 @@
-import { useEffect, useState } from "react";
-import { api } from "../../services/api";
 import { Container } from "./styles";
-
-interface Transaction {
-    id: number;
-    title: string;
-    amount: number;
-    type: string;
-    category: string;
-    createdAt: string;
-}
+import { useTransactions } from '../../hooks/useTransactions';
 
 export function TransactionsTable() {
-
-    const [transactions, setTransactions] = useState<Transaction[]>([]);
-
-    useEffect(() => {
-        api.get('/transactions')
-        //.then(response => response.json())
-        .then(response => setTransactions(response.data.transactions))
-    }, [])
+    const {transactions} = useTransactions();
     
     return (
         <Container>
@@ -34,19 +17,19 @@ export function TransactionsTable() {
                 </thead>
 
                 <tbody>
-                   {transactions.map(transactions => (
-                        <tr key={transactions.id}>
-                            <td>{transactions.title}</td>
-                            <td className={transactions.type}>
+                   {transactions.map(transaction => (
+                        <tr key={transaction.id}>
+                            <td>{transaction.title}</td>
+                            <td className={transaction.type}>
                             {new Intl.NumberFormat('pt-BT', {
                                 style: 'currency',
                                 currency: 'BRL'
-                            }).format(transactions.amount)}
+                            }).format(transaction.amount)}
                             </td>
-                            <td>{transactions.category}</td>
+                            <td>{transaction.category}</td>
                             <td>
                             {new Intl.DateTimeFormat('pt-BT').format(
-                                new Date(transactions.createdAt)
+                                new Date(transaction.createdAt)
                             )}
                             </td>
                         </tr>
